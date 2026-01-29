@@ -11,4 +11,3 @@ cnx = mysql.connector.connect (
 )
 
 cursor = cnx.cursor()
-
