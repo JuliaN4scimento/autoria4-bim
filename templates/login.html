@@ -53,17 +53,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="#">
+                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
                                 Sobre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="#">
+                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
                                 Referências
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="#">
+                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
                                 Acadêmico
                             </a>
                         </li>
@@ -151,9 +151,9 @@
                     <h5 class="text-warning">Links Rápidos</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{ url_for('index') }}">Início</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Referências</a></li>
-                        <li><a href="#">Acadêmico</a></li>
+                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                        <li><a href="{{ url_for('referencias') }}">Referências</a></li>
+                        <li><a href="{{ url_for('academico') }}">Acadêmico</a></li>
                     </ul>
                 </div>
 
