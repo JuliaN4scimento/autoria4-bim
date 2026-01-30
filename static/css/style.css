@@ -11,7 +11,7 @@ body {
 /* HERO */
 .hero {
     min-height: 100vh;
-    background:url("img/img03.jpg") center/cover no-repeat;
+    background: url("../img/img03.jpg") center/cover no-repeat;
     padding-top: 120px;
 }
 
