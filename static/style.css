@@ -1,0 +1,40 @@
+body {
+    background-color: #0f0b1e;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #0f0b1e, #1a1235);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    background:url("img/img03.jpg") center/cover no-repeat;
+    padding-top: 120px;
+}
+
+/* Botão */
+.btn-primary {
+    background-color: #7b4fd8;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #825dd1;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(180deg, #1a1235, #0f0b1e);
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ffb703;
+}
