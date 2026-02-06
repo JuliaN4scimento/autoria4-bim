@@ -7,22 +7,13 @@
 
     <!-- Bootstrap -->
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        href="{{ url_for('static', filename='img/img01.png') }}"
-        type="image/x-icon"
-    >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -32,44 +23,57 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
             <div class="container">
 
-                <a class="navbar-brand fw-bold fs-4 text-warning" href="{{ url_for('index') }}">
+                <!-- LOGO -->
+                <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}" alt="Logo Mitoverso" width="60" class="me-4">
                     Mitoverso
                 </a>
 
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu"
-                >
+                <!-- MENU MOBILE -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- LINKS -->
                 <div class="collapse navbar-collapse justify-content-end" id="menu">
                     <ul class="navbar-nav align-items-center gap-3">
+
+                        <!--LINK QUE LEVA PARA INDEX-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('index') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
                                 Início
                             </a>
                         </li>
+                        
+                        <!--LINK QUE LEVA PARA SOBRE-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
                                 Sobre
                             </a>
                         </li>
+
+                        <!--LINK QUE LEVA PARA REFERÊNCIAS-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
                                 Referências
                             </a>
                         </li>
+
+                        <!--LINK QUE LEVA PARA ACADÊMICO-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
                                 Acadêmico
+                            </a>
+                        </li>
+
+                        <!-- LOGIN -->
+                        <li class="nav-item ms-4 laranja">
+                            <a class="btn btn-warning fw-semibold px-4" href="{{ url_for('login') }}">
+                                Login
                             </a>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -81,11 +85,9 @@
                 <div class="row">
                     <div class="col-lg-6 text-light">
 
-                        <h1 class="display-2 fw-bold text-warning mb-3">
-                            Mitoverso
-                        </h1>
+                        <h1 class="display-2 fw-bold text-warning mb-3 laranja">Mitoverso</h1>
 
-                        <p class="mt-4 fs-5 lh-lg">
+                        <p class="mt-4 fs-5 lh-lg textojustificado">
                             Sejam bem-vindos ao Mitoverso! Aqui, o passado ganha vida:
                             deuses, heróis e narrativas da mitologia grega se encontram
                             em uma experiência única. Cada personagem, cada história
@@ -94,13 +96,10 @@
                             e inesquecível.
                         </p>
 
-                        <a
-                            href="{{ url_for('login') }}"
-                            class="btn btn-lg btn-primary mt-4 px-5 fw-bold rounded-pill shadow"
-                        >
+                        <!-- BOTÃO PRINCIPAL -->
+                        <a href="{{ url_for('linha_tempo') }}" class="btn btn-lg btn-warning mt-4 px-5 fw-bold rounded-pill shadow">
                             Clique aqui!
                         </a>
-
                     </div>
                 </div>
             </div>
@@ -111,7 +110,6 @@
     <footer class="footer text-light pt-5">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Mitoverso</h5>
                     <p class="small">
@@ -138,7 +136,6 @@
                         Desenvolvido por Jamylli, Julia e Ana Beatriz 💜
                     </p>
                 </div>
-
             </div>
         </div>
     </footer>

@@ -3,26 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitoverso | Academico</title>
+    <title>Mitoverso | Acadêmico</title>
 
     <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        href="{{ url_for('static', filename='img/img01.png') }}"
-        type="image/x-icon"
-    >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -32,7 +22,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
             <div class="container">
 
-                <a class="navbar-brand fw-bold fs-4 text-warning" href="{{ url_for('index') }}">
+                <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}" alt="Logo Mitoverso" width="60" class="me-5">
                     Mitoverso
                 </a>
 
@@ -48,22 +39,22 @@
                 <div class="collapse navbar-collapse justify-content-end" id="menu">
                     <ul class="navbar-nav align-items-center gap-3">
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('index') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
                                 Início
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
                                 Sobre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
                                 Referências
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
                                 Acadêmico
                             </a>
                         </li>
@@ -76,16 +67,35 @@
 
     <!-- CORPO -->
     <main>
-        <section class="hero d-flex align-items-center">
+        <section class="hero py-5">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4">
 
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-lg-10">
+                        <div class="bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4 p-5">
+                            <h4 class="text-warning mb-3 laranja">Resumo do projeto</h4>
+                            <p class="fs-5">
+                                O projeto Mitoverso propõe uma releitura crítica e interativa da mitologia grega por meio da criação de uma plataforma digital acessível a jovens estudantes. A partir da análise de fontes clássicas, como as obras de Homero, Hesíodo e Apolodoro, o projeto visa apresentar de forma fiel os personagens, narrativas e relações mitológicas, promovendo uma compreensão mais profunda e crítica dessas tradições. Embora tome ás obras de Homero que focam bastante na Guerra de Troia como ponto de partida, o escopo do Mitoverso abrange diversas figuras e episódios da mitologia grega, organizados em cards digitais e estruturas interativas como árvores genealógicas. O projeto integra pesquisa acadêmica e produção tecnológica para tornar o estudo da mitologia mais atrativo, contribuindo para o desenvolvimento do pensamento crítico, do interesse histórico-cultural e do acesso democrático ao conhecimento clássico.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4 p-5">
+                            <h4 class="text-warning mb-3 laranja">Problema de pesquisa</h4>
+                            <p class="fs-5">
+                                Como a mitologia grega pode ser apresentada de forma fiel às fontes clássicas e, ao mesmo tempo, acessível e atrativa ao público jovem em plataformas digitais?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     </main>
+
 
     <!-- FOOTER -->
     <footer class="footer text-light pt-5">

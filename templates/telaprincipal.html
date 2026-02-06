@@ -6,127 +6,245 @@
     <title>Mitoverso | Linha do tempo</title>
 
     <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        href="{{ url_for('static', filename='img/img01.png') }}"
-        type="image/x-icon"
-    >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
 </head>
 
 <body>
 
-    <!-- CABEÇALHO -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
-            <div class="container">
+<!-- CABEÇALHO -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
+        <div class="container">
 
-                <a class="navbar-brand fw-bold fs-4 text-warning" href="{{ url_for('index') }}">
-                    Mitoverso
-                </a>
+            <!-- LOGO -->
+            <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='img/img01.png') }}"
+                     alt="Logo Mitoverso"
+                     width="60"
+                     class="me-4">
+                Mitoverso
+            </a>
 
-                <button
-                    class="navbar-toggler"
-                    type="button"
+            <!-- MENU MOBILE -->
+            <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#menu"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="menu">
-                    <ul class="navbar-nav align-items-center gap-3">
-                        <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('index') }}">
-                                Início
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
-                                Sobre
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
-                                Referências
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
-                                Acadêmico
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <!-- LINKS -->
+            <div class="collapse navbar-collapse justify-content-end" id="menu">
+                <ul class="navbar-nav align-items-center gap-3">
 
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
+                            Sobre
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
+                            Referências
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
+                            Acadêmico
+                        </a>
+                    </li>
+
+                    <!-- LOGIN / SAIR -->
+                    <li class="nav-item ms-4">
+
+                        {% if session.get("usuario_id") %}
+                            <a class="btn btn-outline-warning fw-semibold px-4"
+                               href="{{ url_for('logout') }}">
+                                Sair
+                            </a>
+                        {% else %}
+                            <a class="btn btn-warning fw-semibold px-4"
+                               href="{{ url_for('login') }}">
+                                Login
+                            </a>
+                        {% endif %}
+
+                    </li>
+
+                </ul>
             </div>
-        </nav>
-    </header>
 
-    <!-- CORPO -->
-    <main>
-        <section class="hero d-flex align-items-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4">
+        </div>
+    </nav>
+</header>
+
+
+<!-- CORPO -->
+<main>
+    <section class="hero py-5">
+
+        <div class="container">
+
+            <!-- TÍTULO -->
+            <h2 class="text-center text-warning fw-bold mb-5">
+                Personagens da Mitologia Grega
+            </h2>
+
+
+            <!-- FORMULÁRIO (SÓ PARA LOGADO) -->
+            {% if session.get("usuario_id") %}
+
+            <div class="row justify-content-center mb-5">
+
+                <div class="col-md-10 col-lg-7">
+
+                    <!-- CARD SOBREPOSTO -->
+                    <div class="card shadow-lg border-0 rounded-4 p-4"
+                         style="background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);">
+
+                        <h3 class="text-center text-warning fw-bold mb-4">
+                            + Adicionar Personagem
+                        </h3>
+
+                        <form method="POST" action="{{ url_for('add_personagem') }}">
+
+                            <div class="mb-3">
+                                <label class="form-label text-light">Nome:</label>
+                                <input type="text" name="nome" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-light">Descrição:</label>
+                                <textarea name="descricao" class="form-control" rows="3" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-light">Imagem (arquivo em static/img):</label>
+                                <input type="text" name="imagem" class="form-control" required>
+                            </div>
+
+                            <button class="btn btn-warning fw-bold w-100 rounded-pill">
+                                Adicionar Personagem
+                            </button>
+
+                        </form>
 
                     </div>
+
                 </div>
             </div>
-        </section>
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="footer text-light pt-5">
-        <div class="container">
-            <div class="row">
+            {% else %}
 
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-warning">Mitoverso</h5>
-                    <p class="small">
-                        Mitologia, história, tecnologia e imaginação em um só lugar.
-                    </p>
+            <!-- VISITANTE -->
+            <div class="text-center mb-5">
+                <a href="{{ url_for('login') }}" class="btn btn-outline-warning fw-semibold px-4 rounded-pill">
+                    Faça login para adicionar personagens
+                </a>
+            </div>
+
+            {% endif %}
+
+
+            <!-- LISTAGEM -->
+            <div class="row g-4 justify-content-center">
+
+                {% for p in personagens %}
+                <div class="col-md-6 col-lg-4">
+
+                    <!-- CARD -->
+                    <div class="card card-mito h-100 shadow-lg border-0 rounded-4"
+                         style="background: rgba(0,0,0,0.60);">
+
+                        <img src="{{ url_for('static', filename='img/' ~ p['imagem']) }}"
+                             class="card-img-top rounded-top-4"
+                             alt="{{ p['nome'] }}">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title text-warning fw-bold">
+                                {{ p["nome"] }}
+                            </h5>
+
+                            <p class="card-text text-light">
+                                {{ p["descricao"] }}
+                            </p>
+
+                            <!-- BOTÕES -->
+                            <div class="mt-auto d-flex justify-content-between">
+
+                                {% if session.get("usuario_id") %}
+                                <a href="{{ url_for('excluir_personagem', id=p['id']) }}"
+                                   class="btn btn-danger btn-sm fw-semibold rounded-pill">
+                                    Excluir
+                                </a>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
-
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-warning">Links Rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ url_for('index') }}">Início</a></li>
-                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
-                        <li><a href="{{ url_for('referencias') }}">Referências</a></li>
-                        <li><a href="{{ url_for('academico') }}">Acadêmico</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-warning">Contato</h5>
-                    <p class="small mb-1">
-                        Email: mitoverso.ifn@gmail.com
-                    </p>
-                    <p class="small">
-                        Desenvolvido por Jamylli, Julia e Ana Beatriz 💜
-                    </p>
-                </div>
+                {% endfor %}
 
             </div>
+
         </div>
-    </footer>
+    </section>
+</main>
 
-    <!-- Bootstrap JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
+
+<!-- FOOTER -->
+<footer class="footer text-light pt-5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-warning">Mitoverso</h5>
+                <p class="small">
+                    Mitologia, história, tecnologia e imaginação em um só lugar.
+                </p>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-warning">Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ url_for('index') }}">Início</a></li>
+                    <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                    <li><a href="{{ url_for('referencias') }}">Referências</a></li>
+                    <li><a href="{{ url_for('academico') }}">Acadêmico</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="text-warning">Contato</h5>
+                <p class="small mb-1">Email: mitoverso.ifn@gmail.com</p>
+                <p class="small">
+                    Desenvolvido por Jamylli, Julia e Ana Beatriz 💜
+                </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

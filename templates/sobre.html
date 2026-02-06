@@ -6,23 +6,13 @@
     <title>Mitoverso | Sobre</title>
 
     <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        href="{{ url_for('static', filename='img/img01.png') }}"
-        type="image/x-icon"
-    >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -32,7 +22,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
             <div class="container">
 
-                <a class="navbar-brand fw-bold fs-4 text-warning" href="{{ url_for('index') }}">
+                <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}" alt="Logo Mitoverso" width="60" class="me-5">
                     Mitoverso
                 </a>
 
@@ -48,39 +39,68 @@
                 <div class="collapse navbar-collapse justify-content-end" id="menu">
                     <ul class="navbar-nav align-items-center gap-3">
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('index') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
                                 Início
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
                                 Sobre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
                                 Referências
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
                                 Acadêmico
                             </a>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
 
     <!-- CORPO -->
     <main>
-        <section class="hero d-flex align-items-center">
+        <section class="hero py-5">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4">
 
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-lg-10">
+                        <div class="bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4 p-5">
+                            <h4 class="text-warning mb-3 laranja">O que é Mitoverso?</h4>
+                            <p class="fs-5">
+                                O projeto Mitoverso vem sendo desenvolvido no Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte – Câmpus Ceará-Mirim, no âmbito do Curso Técnico Integrado em Informática, durante o ano letivo de 2025. O objetivo do projeto é criar uma plataforma digital interativa e crítica sobre mitologia grega,de forma simplificada e contemporânea tornando o estudo dos mitos clássicos mais acessível e atrativo para estudantes.
+
+                                A dedicação da equipe reflete o compromisso com a educação, a inovação e a valorização da cultura clássica, demonstrando como a integração entre diferentes áreas do conhecimento pode resultar em soluções educativas modernas e envolventes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mb-5">
+                    <div class="col-12 col-lg-10">
+                        <div class="bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4 p-5">
+                            <h4 class="text-warning mb-3 laranja">Equipe discente</h4>
+                            <p class="fs-5">
+                                A equipe de discentes foi composta por Jamylli Santiago Falcão Silvestre, Julia da Silva Nascimento e Ana Beatriz Lima da Silva, alunas do curso técnico. Cada integrante participou ativamente da pesquisa, planejamento e execução do projeto, contribuindo com ideias, produção textual, organização de conteúdo e design da interface. O trajeto do Mitoverso foi desenvolvido de forma colaborativa, combinando o conhecimento histórico, a criatividade e a habilidade técnica do grupo, garantindo um produto final coeso e interativo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10">
+                        <div class="bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4 p-5">
+                            <h4 class="text-warning mb-3 laranja">Equipe docente</h4>
+                            <p class="fs-5">
+                                A coordenação do projeto ficou a cargo da Prof.ª Bruna Rafaela de Lima Lopes Araujo da Rocha, docente da disciplina de História, que orientou o desenvolvimento do conteúdo histórico e a fidelidade às obras clássicas. O Prof. Léo Moreira da Silva, coorientador, contribuiu com as disciplinas de Programação Estruturada e Orientada a Objetos (PEOO) e Autoria Web, auxiliando na implementação técnica e na estruturação digital da plataforma.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

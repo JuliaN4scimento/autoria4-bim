@@ -10,9 +10,22 @@ body {
 
 /* HERO */
 .hero {
+    background-image: url("../img/img03.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* IMPORTANTE */
     min-height: 100vh;
-    background: url("../img/img03.jpg") center/cover no-repeat;
-    padding-top: 120px;
+    height: auto;
+}
+
+.textojustificado{
+    text-align: justify;
+}
+
+.laranja{
+    color: #f4b702 !important;
 }
 
 /* Botão */
@@ -37,4 +50,16 @@ body {
 
 .footer a:hover {
     color: #ffb703;
+}
+
+.card-mito {
+    background: rgba(15, 11, 30, 0.85);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    overflow: hidden;
+}
+
+.card-mito img {
+    height: 200px;
+    object-fit: cover;
 }

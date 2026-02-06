@@ -6,23 +6,13 @@
     <title>Mitoverso | Cadastro</title>
 
     <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
-    >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <!-- Favicon -->
-    <link
-        rel="shortcut icon"
-        href="{{ url_for('static', filename='img/img01.png') }}"
-        type="image/x-icon"
-    >
+    <link  rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
 </head>
 
 <body>
@@ -32,7 +22,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
             <div class="container">
 
-                <a class="navbar-brand fw-bold fs-4 text-warning" href="{{ url_for('index') }}">
+                <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}" alt="Logo Mitoverso" width="60" class="me-5">
                     Mitoverso
                 </a>
 
@@ -48,28 +39,27 @@
                 <div class="collapse navbar-collapse justify-content-end" id="menu">
                     <ul class="navbar-nav align-items-center gap-3">
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('index') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
                                 Início
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('sobre') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
                                 Sobre
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('referencias') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
                                 Referências
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold" href="{{ url_for('academico') }}">
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
                                 Acadêmico
                             </a>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -85,7 +75,7 @@
                             <div class="card-body p-4">
 
                                 <h3 class="text-center fw-bold text-warning mb-4">
-                                    Mitoverso
+                                    Cadastro Mitoverso
                                 </h3>
 
                                 <form method="POST">
@@ -102,7 +92,7 @@
                                     <div class="mb-3">
                                         <label class="form-label">Senha</label>
                                         <input
-                                            type="number"
+                                            type="text"
                                             name="senha"
                                             class="form-control form-control-lg"
                                             required
@@ -118,6 +108,9 @@
                                         </button>
                                     </div>
                                 </form>
+                                <p class="text-center mt-3 small">
+                                        Seja bem-vindo ao Mitoverso!
+                                </p>
                             </div>
                         </div>
 
