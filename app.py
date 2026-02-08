@@ -1,8 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
+import os 
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "mitoverso123"
+
+# PASTA ONDE AS IMAGENS SERÃO SALVAS
+UPLOAD_FOLDER = "static/img"
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 # CONEXÃO COM O BANCO
 def get_db_connection():
@@ -36,20 +42,30 @@ def linha_tempo():
 @app.route("/add_personagem", methods=["POST"])
 def add_personagem():
 
-    # se não estiver logado → manda para login
     if "usuario_id" not in session:
         return redirect(url_for("login"))
 
     nome = request.form["nome"]
     descricao = request.form["descricao"]
-    imagem = request.form["imagem"]
 
+    # ===============================
+    # UPLOAD DA IMAGEM PELO PC
+    # ===============================
+    imagem = request.files["imagem"]
+    nome_arquivo = secure_filename(imagem.filename)
+
+    caminho = os.path.join(app.config["UPLOAD_FOLDER"], nome_arquivo)
+    imagem.save(caminho)
+
+    # ===============================
+    # SALVAR NO BANCO
+    # ===============================
     conn = get_db_connection()
     cursor = conn.cursor()
 
     cursor.execute(
         "INSERT INTO personagens (nome, descricao, imagem) VALUES (%s, %s, %s)",
-        (nome, descricao, imagem)
+        (nome, descricao, nome_arquivo)
     )
 
     conn.commit()
