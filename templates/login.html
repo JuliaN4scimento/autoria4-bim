@@ -16,76 +16,45 @@
 </head>
 
 <body>
-
     <!-- CABEÇALHO -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
             <div class="container">
 
+                <!-- LOGO -->
                 <a class="navbar-brand fw-bold fs-4 text-warning laranja" href="{{ url_for('index') }}">
-                    <img src="{{ url_for('static', filename='img/img01.png') }}" 
-                         alt="Logo Mitoverso" width="60" class="me-5">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}" alt="Logo Mitoverso" width="60" class="me-4">
                     Mitoverso
                 </a>
 
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#menu"
-                >
+                <!-- MENU MOBILE -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- LINKS -->
                 <div class="collapse navbar-collapse justify-content-end" id="menu">
                     <ul class="navbar-nav align-items-center gap-3">
 
+                        <!--LINK QUE LEVA PARA INDEX-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('linha_tempo') }}">
-                                Linha do Tempo
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">Início</a>
                         </li>
-
+                        
+                        <!--LINK QUE LEVA PARA SOBRE-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
-                                Sobre
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">Sobre</a>
                         </li>
 
+                        <!--LINK QUE LEVA PARA REFERÊNCIAS-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
-                                Referências
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">Referências</a>
                         </li>
 
+                        <!--LINK QUE LEVA PARA ACADÊMICO-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
-                                Acadêmico
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">Acadêmico</a>
                         </li>
-
-                        {% if session.get("usuario_id") %}
-
-                        <!-- Usuário logado -->
-                        <li class="nav-item ms-4">
-                            <a class="btn btn-danger fw-semibold px-4"
-                               href="{{ url_for('logout') }}">
-                                Sair
-                            </a>
-                        </li>
-
-                        {% else %}
-
-                        <!-- Visitante -->
-                        <li class="nav-item ms-4">
-                            <a class="btn btn-warning fw-semibold px-4"
-                               href="{{ url_for('cadastro') }}">
-                                Cadastre-se
-                            </a>
-                        </li>
-
-                        {% endif %}
-
                     </ul>
                 </div>
             </div>
@@ -98,15 +67,12 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-6 col-lg-4">
-
                         <div class="card bg-black bg-opacity-50 text-light shadow-lg border-0 rounded-4">
                             <div class="card-body p-4">
 
-                                <h3 class="text-center fw-bold text-warning mb-4">
-                                    Login Mitoverso
-                                </h3>
+                                <h3 class="text-center fw-bold text-warning mb-4">Login Mitoverso</h3>
 
-                                <!-- ✅ ERRO APARECE AQUI -->
+                                <!-- ERRO APARECE AQUI -->
                                 {% if erro %}
                                     <div class="alert alert-danger text-center">
                                         {{ erro }}
@@ -119,49 +85,28 @@
                                     <!-- EMAIL -->
                                     <div class="mb-3">
                                         <label class="form-label">Email</label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            class="form-control form-control-lg"
-                                            required
-                                        >
+                                        <input type="email" name="email" class="form-control form-control-lg" required>
                                     </div>
 
                                     <!-- SENHA -->
                                     <div class="mb-3">
                                         <label class="form-label">Senha</label>
-                                        <input
-                                            type="password"
-                                            name="senha"
-                                            class="form-control form-control-lg"
-                                            required
-                                        >
+                                        <input type="password" name="senha" class="form-control form-control-lg" required>
                                     </div>
 
                                     <!-- BOTÃO ENTRAR -->
                                     <div class="d-grid mt-4">
-                                        <button
-                                            type="submit"
-                                            class="btn btn-warning btn-lg fw-bold rounded-pill"
-                                        >
-                                            Entrar
-                                        </button>
+                                        <button type="submit" class="btn btn-warning btn-lg fw-bold rounded-pill">Entrar</button>
                                     </div>
-
                                 </form>
 
                                 <!-- LINK CADASTRO -->
                                 <p class="text-center mt-3 small">
                                     Não tem conta?
-                                    <a href="{{ url_for('cadastro') }}"
-                                       class="text-warning text-decoration-none fw-semibold">
-                                        Cadastre-se
-                                    </a>
+                                    <a href="{{ url_for('cadastro') }}" class="text-warning text-decoration-none fw-semibold">Cadastre-se</a>
                                 </p>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -172,19 +117,15 @@
     <footer class="footer text-light pt-5">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Mitoverso</h5>
-                    <p class="small">
-                        Mitologia, história, tecnologia e imaginação em um só lugar.
-                    </p>
+                    <p class="small">Mitologia, história, tecnologia e imaginação em um só lugar.</p>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Links Rápidos</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{ url_for('index') }}">Início</a></li>
-                        <li><a href="{{ url_for('linha_tempo') }}">Linha do Tempo</a></li>
                         <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
                         <li><a href="{{ url_for('referencias') }}">Referências</a></li>
                         <li><a href="{{ url_for('academico') }}">Acadêmico</a></li>
@@ -193,20 +134,18 @@
 
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Contato</h5>
-                    <p class="small mb-1">
-                        Email: mitoverso.ifn@gmail.com
-                    </p>
-                    <p class="small">
-                        Desenvolvido por Jamylli, Julia e Ana Beatriz 💜
-                    </p>
-                </div>
+                    <p class="small mb-1">Email: mitoverso.ifn@gmail.com</p>
 
+                    <p class="small">Desenvolvido por Julia 💜</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
 
 </body>
 </html>

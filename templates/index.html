@@ -6,8 +6,7 @@
     <title>Mitoverso</title>
 
     <!-- Bootstrap -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -17,7 +16,6 @@
 </head>
 
 <body>
-
     <!-- CABEÇALHO -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
@@ -40,37 +38,27 @@
 
                         <!--LINK QUE LEVA PARA INDEX-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">
-                                Início
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('index') }}">Início</a>
                         </li>
                         
                         <!--LINK QUE LEVA PARA SOBRE-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">
-                                Sobre
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('sobre') }}">Sobre</a>
                         </li>
 
                         <!--LINK QUE LEVA PARA REFERÊNCIAS-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">
-                                Referências
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('referencias') }}">Referências</a>
                         </li>
 
                         <!--LINK QUE LEVA PARA ACADÊMICO-->
                         <li class="nav-item">
-                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">
-                                Acadêmico
-                            </a>
+                            <a class="nav-link fw-semibold text-white" href="{{ url_for('academico') }}">Acadêmico</a>
                         </li>
 
                         <!-- LOGIN -->
                         <li class="nav-item ms-4 laranja">
-                            <a class="btn btn-warning fw-semibold px-4" href="{{ url_for('login') }}">
-                                Login
-                            </a>
+                            <a class="btn btn-warning fw-semibold px-4" href="{{ url_for('login') }}">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -84,9 +72,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 text-light">
-
                         <h1 class="display-2 fw-bold text-warning mb-3 laranja">Mitoverso</h1>
-
                         <p class="mt-4 fs-5 lh-lg textojustificado">
                             Sejam bem-vindos ao Mitoverso! Aqui, o passado ganha vida:
                             deuses, heróis e narrativas da mitologia grega se encontram
@@ -97,9 +83,7 @@
                         </p>
 
                         <!-- BOTÃO PRINCIPAL -->
-                        <a href="{{ url_for('linha_tempo') }}" class="btn btn-lg btn-warning mt-4 px-5 fw-bold rounded-pill shadow">
-                            Clique aqui!
-                        </a>
+                        <a href="{{ url_for('linha_tempo') }}" class="btn btn-lg btn-warning mt-4 px-5 fw-bold rounded-pill shadow">Clique aqui!</a>
                     </div>
                 </div>
             </div>
@@ -112,9 +96,7 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Mitoverso</h5>
-                    <p class="small">
-                        Mitologia, história, tecnologia e imaginação em um só lugar.
-                    </p>
+                    <p class="small">Mitologia, história, tecnologia e imaginação em um só lugar.</p>
                 </div>
 
                 <div class="col-md-4 mb-4">
@@ -129,12 +111,9 @@
 
                 <div class="col-md-4 mb-4">
                     <h5 class="text-warning">Contato</h5>
-                    <p class="small mb-1">
-                        Email: mitoverso.ifn@gmail.com
-                    </p>
-                    <p class="small">
-                        Desenvolvido por Jamylli, Julia e Ana Beatriz 💜
-                    </p>
+                    <p class="small mb-1">Email: mitoverso.ifn@gmail.com</p>
+
+                    <p class="small">Desenvolvido por Julia 💜</p>
                 </div>
             </div>
         </div>

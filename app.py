@@ -4,10 +4,7 @@ import mysql.connector
 app = Flask(__name__)
 app.secret_key = "mitoverso123"
 
-
-# ===============================
 # CONEXÃO COM O BANCO
-# ===============================
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
@@ -16,18 +13,12 @@ def get_db_connection():
         database="mitoverso"
     )
 
-
-# ===============================
 # PÁGINA INICIAL
-# ===============================
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
-# ===============================
 # LINHA DO TEMPO (VISITANTE PODE VER)
-# ===============================
 @app.route("/linha_tempo")
 def linha_tempo():
     conn = get_db_connection()
@@ -41,10 +32,7 @@ def linha_tempo():
 
     return render_template("telaprincipal.html", personagens=personagens)
 
-
-# ===============================
 # ADICIONAR PERSONAGEM (SÓ LOGADO)
-# ===============================
 @app.route("/add_personagem", methods=["POST"])
 def add_personagem():
 
@@ -70,13 +58,9 @@ def add_personagem():
 
     return redirect(url_for("linha_tempo"))
 
-
-# ===============================
 # LOGIN
-# ===============================
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     if request.method == "POST":
         email = request.form["email"]
         senha = request.form["senha"]
@@ -106,19 +90,13 @@ def login():
 
     return render_template("login.html")
 
-
-# ===============================
 # LOGOUT
-# ===============================
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect(url_for("linha_tempo"))
 
-
-# ===============================
 # CADASTRO
-# ===============================
 @app.route("/cadastro", methods=["GET", "POST"])
 def cadastro():
 
@@ -146,9 +124,7 @@ def cadastro():
 
     return render_template("cadastro.html")
 
-# ===============================
 # EXCLUIR PERSONAGEM
-# ===============================
 @app.route("/excluir/<int:id>")
 def excluir_personagem(id):
 
@@ -167,27 +143,19 @@ def excluir_personagem(id):
 
     return redirect(url_for("linha_tempo"))
 
-
-# ===============================
 # PÁGINAS INFORMATIVAS
-# ===============================
 @app.route("/sobre")
 def sobre():
     return render_template("sobre.html")
-
 
 @app.route("/referencias")
 def referencias():
     return render_template("referencias.html")
 
-
 @app.route("/academico")
 def academico():
     return render_template("academico.html")
 
-
-# ===============================
 # EXECUÇÃO
-# ===============================
 if __name__ == "__main__":
     app.run(debug=True)
