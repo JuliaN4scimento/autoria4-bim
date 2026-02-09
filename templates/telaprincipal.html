@@ -149,9 +149,13 @@
 
                                 <!-- BOTÕES -->
                                 <div class="mt-auto d-flex justify-content-between">
-
                                     {% if session.get("usuario_id") %}
-                                    <a href="{{ url_for('excluir_personagem', id=p['id']) }}" class="btn btn-danger btn-sm fw-semibold rounded-pill">Excluir</a>
+
+                                        <!-- BOTÃO EDITAR -->
+                                        <a href="{{ url_for('editar_personagem', id=p['id']) }}" class="btn btn-warning btn-sm fw-semibold rounded-pill">Editar</a>
+
+                                        <!-- BOTÃO EXCLUIR -->
+                                        <a href="{{ url_for('excluir_personagem', id=p['id']) }}" class="btn btn-danger btn-sm fw-semibold rounded-pill">Excluir</a>
 
                                     {% endif %}
                                 </div>
@@ -165,7 +169,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer text-light pt-5">
+    <footer class="footer text-light pt-3 pb-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">

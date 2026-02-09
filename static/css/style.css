@@ -1,6 +1,23 @@
+/* BASE */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     background-color: #0f0b1e;
     font-family: 'Poppins', sans-serif;
+
+    /* Layout em coluna */
+    display: flex;
+    flex-direction: column;
+}
+
+/* MAIN cresce automaticamente */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -15,16 +32,19 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 
-    /* IMPORTANTE */
-    min-height: 100vh;
-    height: auto;
+    /* Agora a hero ocupa só o espaço restante */
+    flex: 1;
+
+    /* Padding menor para caber melhor */
+    padding: 40px 0;
 }
 
-.textojustificado{
+/* Texto */
+.textojustificado {
     text-align: justify;
 }
 
-.laranja{
+.laranja {
     color: #f4b702 !important;
 }
 
@@ -41,6 +61,9 @@ body {
 /* Footer */
 .footer {
     background: linear-gradient(180deg, #1a1235, #0f0b1e);
+
+    /* Menos padding para não empurrar conteúdo */
+    padding: 10px 0;
 }
 
 .footer a {

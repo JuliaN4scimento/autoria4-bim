@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitoverso | Editar Personagem</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/img01.png') }}" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent py-4">
+            <div class="container">
+
+                <!-- LOGO -->
+                <a class="navbar-brand fw-bold fs-4 text-warning laranja"
+                   href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/img01.png') }}"
+                         alt="Logo Mitoverso"
+                         width="60"
+                         class="me-4">
+                    Mitoverso
+                </a>
+
+                <!-- MENU MOBILE -->
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- LINKS -->
+                <div class="collapse navbar-collapse justify-content-end" id="menu">
+                    <ul class="navbar-nav align-items-center gap-3">
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-white"
+                               href="{{ url_for('index') }}">
+                                Início
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-white"
+                               href="{{ url_for('sobre') }}">
+                                Sobre
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-white"
+                               href="{{ url_for('referencias') }}">
+                                Referências
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold text-white"
+                               href="{{ url_for('academico') }}">
+                                Acadêmico
+                            </a>
+                        </li>
+
+                        <!-- LOGIN ou SAIR -->
+                        <li class="nav-item ms-4 laranja">
+
+                            {% if session.get("usuario_id") %}
+                                <a class="btn btn-danger fw-semibold px-4 rounded-pill"
+                                   href="{{ url_for('logout') }}">
+                                    Sair
+                                </a>
+                            {% else %}
+                                <a class="btn btn-warning fw-semibold px-4 rounded-pill"
+                                   href="{{ url_for('login') }}">
+                                    Login
+                                </a>
+                            {% endif %}
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CORPO -->
+    <main>
+        <section class="hero py-5">
+            <div class="container">
+
+                <!-- TÍTULO -->
+                <h2 class="text-center text-warning fw-bold mb-5">
+                    Editar Personagem
+                </h2>
+
+                <!-- CARD CENTRAL -->
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-7">
+
+                        <div class="card shadow-lg border-0 rounded-4 p-4"
+                             style="background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);">
+
+                            <h3 class="text-center text-warning fw-bold mb-4">
+                                Alterar Informações
+                            </h3>
+
+                            <!-- FORM -->
+                            <form method="POST">
+
+                                <!-- Nome -->
+                                <div class="mb-3">
+                                    <label class="form-label text-light">
+                                        Nome:
+                                    </label>
+                                    <input type="text"
+                                           name="nome"
+                                           class="form-control"
+                                           value="{{ personagem['nome'] }}"
+                                           required>
+                                </div>
+
+                                <!-- Descrição -->
+                                <div class="mb-3">
+                                    <label class="form-label text-light">
+                                        Descrição:
+                                    </label>
+                                    <textarea name="descricao"
+                                              class="form-control"
+                                              rows="4"
+                                              required>{{ personagem['descricao'] }}</textarea>
+                                </div>
+
+                                <!-- BOTÃO SALVAR -->
+                                <button class="btn btn-warning fw-bold w-100 rounded-pill">
+                                    Salvar Alterações
+                                </button>
+                            </form>
+
+                            <!-- CANCELAR -->
+                            <a href="{{ url_for('linha_tempo') }}"
+                               class="btn btn-outline-light mt-3 w-100 rounded-pill">
+                                Cancelar
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer text-light pt-3 pb-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning">Mitoverso</h5>
+                    <p class="small">
+                        Mitologia, história, tecnologia e imaginação em um só lugar.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{{ url_for('index') }}">Início</a></li>
+                        <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                        <li><a href="{{ url_for('referencias') }}">Referências</a></li>
+                        <li><a href="{{ url_for('academico') }}">Acadêmico</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-warning">Contato</h5>
+                    <p class="small mb-1">Email: mitoverso.ifn@gmail.com</p>
+                    <p class="small">Desenvolvido por Julia 💜</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

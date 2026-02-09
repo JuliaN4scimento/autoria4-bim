@@ -24,7 +24,7 @@ def get_db_connection():
 def index():
     return render_template("index.html")
 
-# LINHA DO TEMPO (VISITANTE PODE VER)
+# PERSONAGENS
 @app.route("/linha_tempo")
 def linha_tempo():
     conn = get_db_connection()
@@ -48,18 +48,14 @@ def add_personagem():
     nome = request.form["nome"]
     descricao = request.form["descricao"]
 
-    # ===============================
     # UPLOAD DA IMAGEM PELO PC
-    # ===============================
     imagem = request.files["imagem"]
     nome_arquivo = secure_filename(imagem.filename)
 
     caminho = os.path.join(app.config["UPLOAD_FOLDER"], nome_arquivo)
     imagem.save(caminho)
 
-    # ===============================
     # SALVAR NO BANCO
-    # ===============================
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -158,6 +154,43 @@ def excluir_personagem(id):
     conn.close()
 
     return redirect(url_for("linha_tempo"))
+
+#EDITAR PERSONAGEM
+@app.route("/editar/<int:id>", methods=["GET", "POST"])
+def editar_personagem(id):
+
+    # Só permite editar se estiver logado
+    if "usuario_id" not in session:
+        return redirect(url_for("login"))
+
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Buscar personagem atual
+    cursor.execute("SELECT * FROM personagens WHERE id = %s", (id,))
+    personagem = cursor.fetchone()
+
+    # Se enviar o formulário (POST)
+    if request.method == "POST":
+        nome = request.form["nome"]
+        descricao = request.form["descricao"]
+
+        cursor.execute("""
+            UPDATE personagens
+            SET nome = %s, descricao = %s
+            WHERE id = %s
+        """, (nome, descricao, id))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        return redirect(url_for("linha_tempo"))
+
+    cursor.close()
+    conn.close()
+
+    return render_template("editar.html", personagem=personagem)
 
 # PÁGINAS INFORMATIVAS
 @app.route("/sobre")
